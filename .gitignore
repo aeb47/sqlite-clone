@@ -1,3 +1,5 @@
 .idea
 CMakeLists.txt
 cmake-build-debug
+.rspec
+.DS_Store

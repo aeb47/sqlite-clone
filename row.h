@@ -2,13 +2,15 @@
 #define SQLITE_CLONE_ROW_H
 #include <iostream>
 
-const uint32_t COLUMN_USERNAME = 32;
+const uint32_t COLUMN_USERNAME_SIZE = 32;
 const uint32_t COLUMN_EMAIL_SIZE = 255;
 
 struct Row_t {
     uint32_t id;
-    char username[COLUMN_USERNAME];
-    char email[COLUMN_EMAIL_SIZE];
+    // C strings are supposed to end with a null character
+    // so allocate an additional byte for that
+    char username[COLUMN_USERNAME_SIZE + 1];
+    char email[COLUMN_EMAIL_SIZE + 1];
 };
 typedef struct Row_t Row;
 
